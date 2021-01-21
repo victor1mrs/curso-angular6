@@ -1,17 +1,4 @@
-<!--<div class="col-md-6">
-    <div class="card" style="width:400px">
-        <div class="card-body">
-            <h4 class="card-title">{{nombre}}</h4>
-            <p class="card-text">
-            {{ciudad}}
-            </p>
-            <a href="#" class="btn btn-primary">See Profile</a>
-        </div>
-    </div>
-</div>-->
-
-
-    <div class="card-content">
+<div class="card-content">
         <div class="card-img">
             <img src="https://placeimg.com/380/230/nature" alt="">
             <span>
@@ -23,6 +10,7 @@
             <p><b>{{destino.imageUrl}}. </b>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Laboriosam, voluptatum! Dolor
                 quo, perspiciatis
                 voluptas totam</p>
-            <a href="#" class="btn-card">Read</a>
+            <a href="#" class="btn-card" (click)="ir()">Read</a>
+            <span [style.display]="destino.isSelected()? '' : 'none'">- PREFERIDO -</span>
         </div>
     </div>

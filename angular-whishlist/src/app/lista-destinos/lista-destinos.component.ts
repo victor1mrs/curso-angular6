@@ -20,4 +20,8 @@ export class ListaDestinosComponent implements OnInit {
     console.log(this.destinos);
     return false; //no quiero que se haga el submit porque recargaria la pagina y estamos haciendo una SPA
   }
+  elegido(d: DestinoViaje){
+    this.destinos.forEach(function (x){x.setSelected(false);});
+    d.setSelected(true);
+  }
 }
