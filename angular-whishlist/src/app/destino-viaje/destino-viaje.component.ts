@@ -8,6 +8,7 @@ import { DestinoViaje } from './../models/destino-viaje.model';
 })
 export class DestinoViajeComponent implements OnInit {
   @Input() destino!: DestinoViaje;
+  @Input() position!: number;
   @HostBinding('attr.Class') cssClass = 'col-md-4'; //le asignamos una clase al wrapper que genera angular
   @Output() clicked: EventEmitter<DestinoViaje>;
   constructor() {

@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
-import {DestinoViaje} from './../models/destino-viaje.model';
+import { Component, OnInit, Output } from '@angular/core';
+import { DestinoViaje } from './../models/destino-viaje.model';
+//import { DestinosApiClient} from '../models/destinos-api-client.model';
 
 @Component({
   selector: 'app-lista-destinos',
@@ -7,21 +8,35 @@ import {DestinoViaje} from './../models/destino-viaje.model';
   styleUrls: ['./lista-destinos.component.css']
 })
 export class ListaDestinosComponent implements OnInit {
-  destinos: DestinoViaje[];
-  constructor() { 
-    this.destinos = [];
 
+  destinos: DestinoViaje[];
+  constructor() {
+    this.destinos = [];
   }
 
   ngOnInit(): void {
   }
-  guardar(nombre: string, url:string):boolean{
-    this.destinos.push(new DestinoViaje(nombre,url));
-    console.log(this.destinos);
-    return false; //no quiero que se haga el submit porque recargaria la pagina y estamos haciendo una SPA
+
+  agregado(d: DestinoViaje){
+    
+    this.destinos.push(d);
+    //this.destinoApiClient.add(d);
+    //this.onItemAdded.emit(d);
+    
   }
-  elegido(d: DestinoViaje){
-    this.destinos.forEach(function (x){x.setSelected(false);});
+
+  elegido(d:DestinoViaje){
+
+    this.destinos.forEach(x=>x.setSelected(false));
+    
     d.setSelected(true);
+    
+    }
+  /*
+  elegido(e: DestinoViaje){
+    this.destinosApiClient.getAll().forEach(x => x.setSelected(false));
+    e.setSelected(true);
+    
   }
+  */
 }
